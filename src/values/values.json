@@ -1,0 +1,5 @@
+{
+    "TOKEN_COOKIE_KEY": "token",
+    "VALUE_COOKIE_HTTPS_ONLY": false,
+    "VALUE_COOKIE_MAX_AGE": 1210000
+}
