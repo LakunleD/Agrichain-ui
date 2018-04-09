@@ -105,7 +105,7 @@ export default class Header extends Component {
                         <ul className="sidebar-menu" data-widget="tree">
                             <li className="header">MAIN NAVIGATION</li>
                             <li className="treeview">
-                                <Link to="">
+                                <Link to="#">
                                     <i className="fa fa-user"></i>
                                     <span>User Management</span>
                                     <span className="pull-right-container">

@@ -31,6 +31,7 @@ export default class Login extends Component {
         }
 
         axios.post('http://localhost:8020/auth', data)
+
             .then((response) => {
                 if (response.status === 200) {
                     alert(response.data.message);
