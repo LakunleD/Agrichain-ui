@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 
 import axios from 'axios';
 
+import values from '../values/values.json';
+
 export default class Login extends Component {
 
     state={
@@ -30,7 +32,7 @@ export default class Login extends Component {
             password:this.state.password
         }
 
-        axios.post('http://localhost:8020/auth', data)
+        axios.post(values.URL+'/auth', data)
 
             .then((response) => {
                 if (response.status === 200) {

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 
 import axios from 'axios';
+import values from '../values/values.json';
 
 export default class User extends Component {
 
@@ -11,7 +12,7 @@ export default class User extends Component {
 
     loadUsers(){
         axios({
-            url: 'http://localhost:8020/users',
+            url: values.URL+'/users',
             method: "GET"
         }).then((response) => {
                 let users = response.data;

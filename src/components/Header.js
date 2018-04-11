@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 
 import { Link } from "react-router-dom";
 import axios from 'axios';
+import values from '../values/values.json';
 
 export default class Header extends Component {
 
@@ -14,7 +15,7 @@ export default class Header extends Component {
 
     componentDidMount() {
         axios({
-            url: "http://localhost:8020/getUser",
+            url: values.URL+"/getUser",
             method: "GET",
             headers: {
                 "Content-Type": "application/json",

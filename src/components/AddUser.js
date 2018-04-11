@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 
 import axios from 'axios';
+import values from '../values/values.json';
 
 export default class AddUser extends Component {
 
@@ -35,7 +36,7 @@ export default class AddUser extends Component {
 
         }
 
-        axios.post('http://localhost:8020/users', data)
+        axios.post(values.URL+'/users', data)
             .then((response) => {
                 if (response.status === 200) {
                     alert(response.data.message);
