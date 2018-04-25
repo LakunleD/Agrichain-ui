@@ -60,12 +60,16 @@ export default class Login extends Component {
 
     }
 
+    componentDidMount(){
+        console.log(this.props)
+    }
+
     render() {
         return (
             <div>
                 <div className="login-box">
                     <div className="login-logo">
-                        <a href="#"><b>Admin</b>LTE</a>
+                        <a href="/"><b>Admin</b>LTE</a>
                     </div>
                     <div className="login-box-body">
                         <p className="login-box-msg">Sign in to start your session</p>
@@ -86,7 +90,9 @@ export default class Login extends Component {
                             </div>
                         </form>
 
-                        <a href="#">I forgot my password</a><br/>
+                        <button onClick={this.props.onRegisterClick}>Register</button>
+
+                        <a href="/reset">I forgot my password</a><br/>
                     </div>
                 </div>
             </div>

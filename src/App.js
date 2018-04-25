@@ -12,6 +12,7 @@ import Dash from './components/Dash';
 import Blank from './components/Blank';
 import User from './components/User';
 import AddUser from './components/AddUser';
+import Register from './components/Register';
 
 class App extends Component {
 
@@ -25,18 +26,34 @@ class App extends Component {
 
         this.state={
             token:token,
-            user:""
+            user:"",
+            redirect: false,
+            register: false
         }
         this.onLoginSuccess = this.onLoginSuccess.bind(this);
         this.onLogOutClicked = this.onLogOutClicked.bind(this);
+        this.onRegisterClick = this.onRegisterClick.bind(this);
     }
 
     onLogOutClicked() {
         this.setState({
-            token: null
+            token: null,
+            redirect: true
         })
 
         cookies.remove(values.TOKEN_COOKIE_KEY);
+    }
+
+    onRegisterClick(){
+        this.setState({
+            register:true
+        })
+    }
+
+    onRegisterSuccess(){
+        this.setState({
+            register:false
+        })
     }
 
     onLoginSuccess(userDetails) {
@@ -50,16 +67,21 @@ class App extends Component {
 
         setTimeout(() => {
             this.setState({
-                token: token
+                token: token,
+                redirect: false
             })
         }, 2000) //two seconds
+
     }
 
     render() {
         return (
             <div>
                 {
-                    this.state.token === null ? <Login onLoginSuccess={this.onLoginSuccess}/> : null
+                    this.state.register ? <Register onRegisterSuccess={this.onRegisterSuccess}/> : null
+                }
+                {
+                    (this.state.redirect === true || this.state.token === null) ? <Login onRegisterClick={this.onRegisterClick} onLoginSuccess={this.onLoginSuccess}/> : null
                 }
                 {
                     (this.state.token !== null) ?
@@ -72,6 +94,7 @@ class App extends Component {
                     <Route path="/adduser" component={AddUser} />
                     <Route path="/user" component={User} />
                     <Route path="/blank" component={Blank} />
+                    <Route path="/register" component={Register} />
                 </Switch>
             </div>
 
