@@ -33,6 +33,7 @@ class App extends Component {
         this.onLoginSuccess = this.onLoginSuccess.bind(this);
         this.onLogOutClicked = this.onLogOutClicked.bind(this);
         this.onRegisterClick = this.onRegisterClick.bind(this);
+        this.onRegisterSuccess = this.onRegisterSuccess.bind(this);
     }
 
     onLogOutClicked() {
@@ -71,7 +72,6 @@ class App extends Component {
                 redirect: false
             })
         }, 2000) //two seconds
-
     }
 
     render() {
